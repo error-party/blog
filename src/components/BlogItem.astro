@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import FormattedDate from "./FormattedDate.astro";
+const { title, relDate, image } = Astro.props;
+---
+
+<a href="/">
+  <article>
+    <div class="icon-img">
+      {image && <Image width={300} height={200} src={image} alt="blog-image" />}
+    </div>
+    <div class="remain">
+      <h2 class="title">
+        {title}
+      </h2>
+      <div class="date">
+        <FormattedDate date={relDate} />
+      </div>
+    </div>
+  </article>
+</a>

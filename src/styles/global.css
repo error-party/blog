@@ -1,3 +1,45 @@
 :root {
-	--accent: #fff;
+  --accent: #f51b51;
+  --accent-dark: #690000;
+  --black: #0b0b0b;
+  --gray: #e4e4e4;
+  --white: #ffffff;
+}
+@font-face {
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "bagola";
+  src: url("/fonts/Bagola.otf") format("opentype");
+  font-style: normal;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+body {
+  font-family: "Atkinson", sans-serif;
+  /* background: linear-gradient(var(--gray-gradient)) no-repeat; */
+  /* background-size: 100% 600px; */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  color: var(--black);
+  line-height: 1.7;
+}
+a {
+  text-decoration: none;
+}
+main {
+  padding: 0 2rem;
+  padding-bottom: 1rem;
 }

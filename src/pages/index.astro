@@ -1,0 +1,54 @@
+---
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+// import { getCollection } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+// import { Image } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro";
+
+import Header from "../components/Header.astro";
+import BlogItem from "../components/BlogItem.astro";
+// const posts = (await getCollection("blog")).sort(
+//   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+// );
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    <style>
+      main {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      aside {
+        h1 {
+          font-family: "bagola";
+        }
+      }
+
+      section {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <aside>
+        <h1>Some Will Blog $$</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, eum.</p>
+      </aside>
+      <section>
+        List of all Blogs
+        <BlogItem title={"First post"} relDate={new Date("Jul 08 2222")} />
+        <BlogItem title={"First "} relDate={new Date("Jul 08 2025")} />
+        <BlogItem title={"First Second"} relDate={new Date("Jul 05 2022")} />
+        <BlogItem title={"First Third"} relDate={new Date("Aug 08 2022")} />
+        <BlogItem title={"First Day"} relDate={new Date("Jan 08 2022")} />
+      </section>
+    </main>
+  </body>
+</html>
