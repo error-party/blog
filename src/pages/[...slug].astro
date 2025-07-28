@@ -3,19 +3,20 @@ import { type CollectionEntry, getCollection } from "astro:content";
 // import BlogPost from '../../layouts/BlogPost.astro';
 import { render } from "astro:content";
 
-export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: post,
-  }));
-}
-type Props = CollectionEntry<"blog">;
+// export async function getStaticPaths() {
+//   const posts = await getCollection("blog");
+//   return posts.map((post) => ({
+//     params: { slug: post.id },
+//     props: post,
+//   }));
+// }
+// type Props = CollectionEntry<"blog">;
 
-const post = Astro.props;
-const { Content } = await render(post);
+// const post = Astro.props;
+// const { Content } = await render(post);
 ---
 
-<!-- <BlogPost {...post.data}> -->
-<Content />
-<!-- </BlogPost> -->
+<!-- <BlogPost {...post.data}> --><!-- <Content /> --><!-- </BlogPost> -->
+<body>
+  <h1>THis is Soome</h1>
+</body>

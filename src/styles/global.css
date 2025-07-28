@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Instrument+Serif");
 :root {
   --accent: #f51b51;
   --accent-dark: #690000;
   --black: #0b0b0b;
   --gray: #e4e4e4;
-  --white: #ffffff;
+  --border-color: #bcbcbcac;
+  --background: #fcf7eb;
+  --side-pdding: 2.5rem;
 }
 @font-face {
   font-family: "Atkinson";
@@ -12,9 +15,16 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "bagola";
-  src: url("/fonts/Bagola.otf") format("opentype");
+.font-instrument {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-edu {
+  font-family: "Edu NSW ACT Cursive", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
   font-style: normal;
 }
 * {
@@ -29,17 +39,13 @@ html {
 }
 body {
   font-family: "Atkinson", sans-serif;
-  /* background: linear-gradient(var(--gray-gradient)) no-repeat; */
-  /* background-size: 100% 600px; */
+  /* background: #f8f8ff; */
+  background: var(--background);
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: var(--black);
-  line-height: 1.7;
+  min-height: 100svh;
 }
 a {
   text-decoration: none;
-}
-main {
-  padding: 0 2rem;
-  padding-bottom: 1rem;
 }
