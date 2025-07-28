@@ -5,6 +5,10 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import Bluesky from "../assets/icons/bluesky.astro";
 import Github from "../assets/icons/github.astro";
 import BlogItem from "../components/BlogItem.astro";
+
+import { getCollection } from 'astro:content';
+
+const allBlogPosts = await getCollection('blog');
 ---
 
 <!doctype html>
@@ -156,6 +160,13 @@ import BlogItem from "../components/BlogItem.astro";
               relDate={new Date("Jul 08 2025")}
             />
 
+            {
+              allBlogPosts.map(
+                (blog, ) => {
+                  return <a href={blog.id}>{blog.body}</a>
+                }
+              )
+            }
             <!-- Extra Remain Sace -->
             <div class="blank-space"></div>
           </section>
