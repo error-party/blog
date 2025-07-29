@@ -5,6 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://error-party.github.io',
+	site: 'https://blog.error.party',
 	integrations: [mdx(), sitemap()],
 });
