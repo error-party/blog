@@ -1,177 +1,68 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogItem from "../components/BlogItem.astro";
+
+import "../styles/global.css";
+import "../styles/homepage.css";
 
 import Bluesky from "../assets/icons/bluesky.astro";
 import Github from "../assets/icons/github.astro";
-import BlogItem from "../components/BlogItem.astro";
+import Wave from "../assets/images/wave.astro";
 
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
-const allBlogPosts = await getCollection('blog');
+const blogPosts = await getCollection("blog");
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    <style>
-      .main-container {
-        position: relative;
-        z-index: 10;
-        max-width: 1450px;
-        margin: 0 auto;
-        padding: 0 1rem;
-      }
-      .inner-container {
-        background: var(--background);
-      }
-      main {
-        min-height: 100svh;
-        display: flex;
-      }
+<BaseLayout frontmatter={{title: "jfjfd", description: "fdkfkd"}}>
+  <!-- background wave svg -->
+  <div class="bg">
+    <Wave />
+  </div>
 
-      aside {
-        padding: 2rem;
-        flex-shrink: 0;
-
-        width: 23%;
-        display: flex;
-        flex-direction: column;
-
-        border-left: 1px solid;
-        border-right: 1px solid;
-
-        border-color: var(--border-color);
-
-        h1 {
-          font-size: 3.4rem;
-          line-height: 0.9;
-        }
-        p {
-          margin-top: 1rem;
-          line-height: 1.5;
-          font-size: 14px;
-          color: #3c3c3c;
-          > span {
-            text-decoration: underline;
-            letter-spacing: 1px;
-            text-transform: capitalize;
-          }
-        }
-        .social {
-          margin-top: auto;
-          display: flex;
-          justify-content: space-between;
-          color: #bbb7b7;
-          .icons {
-            display: flex;
-            gap: 0.6rem;
-          }
-          .rights {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            span {
-              font-size: 12px;
-            }
-          }
-        }
-      }
-      section {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
-
-      .bg {
-        position: fixed;
-        color: var(--gray);
-        inset: 0;
-        width: 100%;
-        height: 100vh;
-        svg {
-          width: 100%;
-          height: 100%;
-        }
-      }
-
-      .up-coming {
-        min-height: 6rem;
-        border-right: 1px solid var(--border-color);
-        padding: 2.5rem;
-      }
-      .blank-space {
-        height: 100%;
-        border-right: 1px solid var(--border-color);
-      }
-    </style>
-  </head>
-  <body>
-    <!-- background wave svg -->
-    <div class="bg">
-      <svg xmlns="http://www.w3.org/2000/svg"
-        ><defs
-          ><pattern id="a" width="70" height="8" patternUnits="userSpaceOnUse"
-            ><rect width="100%" height="100%" fill="none"></rect><path
-              fill="none"
-              stroke="currentColor"
-              d="M-.02 22c8.373 0 11.938-4.695 16.32-9.662C20.785 7.258 25.728 2 35 2s14.215 5.258 18.7 10.338C58.082 17.305 61.647 22 70.02 22M-.02 14.002C8.353 14 11.918 9.306 16.3 4.339 20.785-.742 25.728-6 35-6S49.215-.742 53.7 4.339c4.382 4.967 7.947 9.661 16.32 9.664M70 6.004c-8.373-.001-11.918-4.698-16.3-9.665C49.215-8.742 44.272-14 35-14S20.785-8.742 16.3-3.661C11.918 1.306 8.353 6-.02 6.002"
-            ></path></pattern
-          ></defs
-        ><rect width="800%" height="800%" fill="url(#a)" transform="translate(-88)"></rect></svg
-      >
-    </div>
-
-    <!-- Main  -->
-    <div class="main-container">
-      <!-- <Header /> -->
-      <div class="inner-container">
-        <main>
-          <aside>
-            <h1 class="font-instrument">
-              Mistakes
-              <br />
-              Make
-              <br />
-              The Headlines
-            </h1>
-            <h1 class="font-instrument"></h1>
-            <p>
-              Interactive Journeys Through Computer Science and Web Development by <span
-                >Error.Party</span
-              >
-            </p>
-            <div class="social">
-              <div class="icons">
-                <Github />
-                <Bluesky />
-              </div>
-              <div class="rights">&#169; <span> $#% - @^&*</span></div>
+  <!-- Main  -->
+  <div class="main-container">
+    <!-- <Header /> -->
+    <div class="inner-container">
+      <main>
+        <aside>
+          <h1 class="font-instrument">
+            Mistakes
+            <br />
+            Make
+            <br />
+            The Headlines
+          </h1>
+          <h1 class="font-instrument"></h1>
+          <p>
+            Interactive Journeys Through Computer Science and Web Development by <span
+              >Error.Party</span
+            >
+          </p>
+          <div class="social">
+            <div class="icons">
+              <Github />
+              <Bluesky />
             </div>
-          </aside>
-          <section>
-            <div class="up-coming font-edu">
-              <span class="logo font-instrument"> ERROR.BLOG --</span> One upcoming Blog
+            <div class="rights">
+              &#169; <span> $#% - @^&*</span>
             </div>
-            <BlogItem title={"Journey of a Mail Client"} relDate={new Date("Jul 08 2222")} />
-            <BlogItem
-              title={"From Docker to LNX,Beyond Suffaring."}
-              relDate={new Date("Jul 08 2025")}
-            />
-
-            {
-              allBlogPosts.map(
-                (blog, ) => {
-                  return <a href={blog.id}>{blog.body}</a>
-                }
-              )
-            }
-            <!-- Extra Remain Sace -->
-            <div class="blank-space"></div>
-          </section>
-        </main>
-      </div>
+          </div>
+        </aside>
+        <section>
+          <div class="up-coming font-edu">
+            <span class="logo font-instrument"> ERROR.BLOG --</span> One upcoming
+            Blog
+          </div>
+          {
+            blogPosts.map((post) => (
+              <BlogItem title={post.data.title} relDate={post.data.pubDate} />
+            ))
+          }
+          <!-- Extra Remain Sace -->
+          <div class="blank-space"></div>
+        </section>
+      </main>
     </div>
-  </body>
-</html>
+  </div>
+</BaseLayout>
